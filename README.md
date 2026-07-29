@@ -3,7 +3,7 @@
 My resume as one page site.
 
 ### :link: GitHub Pages Link: 
-:point_right:  https://hozepha-resume.firebaseapp (firebase hosting)
+:point_right:  https://hozepha-resume.firebaseapp (firebase hosting) --> no longer works in progress
 :point_right:  https://hozepha-resume.web.app (firebase hosting)
 
 #### Acknowledgments:
