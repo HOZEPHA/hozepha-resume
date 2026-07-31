@@ -15,7 +15,7 @@ steps:
     
  # Points to your docs folder where index.html lives
     app_location: '/docs'          
-    output_location: '/docs'  
+    output_location: '/'  
     
     # Skip Build Frameworks
     app_build_command: 'echo "Skipping build for plain HTML"'
