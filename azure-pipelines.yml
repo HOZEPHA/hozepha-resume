@@ -8,21 +8,18 @@ variables:
 - group: static-web-app-secrets
 
 steps:
-# 1. Clean the agent workspace completely to eliminate hidden tracking files
 - checkout: self
   clean: true
 
-# 2. Deploy only the docs directory using native parameters
 - task: AzureStaticWebApp@0
   inputs:
     azure_static_web_apps_api_token: $(DEPLOYMENT_TOKEN)
     
-    # CRITICAL: We set app_location to the root folder to reset the Oryx scanning scope
-    app_location: '/'          
+    # Tells the engine exactly where your index.html is located
+    app_location: '/docs'          
     
-    # We explicitly declare that the build is completely finished 
+    # Must match app_location when bypassing the build step
+    output_location: '/docs'       
+    
+    # Bypasses the Oryx file-scanning bug completely
     skip_app_build: true
-    is_static_export: true
-    
-    # We target your files by telling the engine they are sitting inside the docs folder
-    output_location: '/docs'   
