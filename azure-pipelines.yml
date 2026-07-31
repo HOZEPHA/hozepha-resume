@@ -13,9 +13,9 @@ steps:
     # Authentication
     azure_static_web_apps_api_token: $(DEPLOYMENT_TOKEN)
     
-    # Deployment Directory
-    app_location: '/'          # Location of your index.html
-    output_location: '/'       # Same folder since there is no build step
+ # Points to your docs folder where index.html lives
+    app_location: '/docs'          
+    output_location: '/docs'  
     
     # Skip Build Frameworks
     app_build_command: 'echo "Skipping build for plain HTML"'
