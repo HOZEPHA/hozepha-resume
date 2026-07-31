@@ -1,21 +1,22 @@
 trigger:
-- main  # Change to your default branch name if different
+- main
 
 pool:
   vmImage: ubuntu-latest
 
 variables:
-- group: static-web-app-secrets # Links your secret token
+- group: static-web-app-secrets
 
 steps:
 - task: AzureStaticWebApp@0
   inputs:
-    # Authentication
     azure_static_web_apps_api_token: $(DEPLOYMENT_TOKEN)
     
- # Points to your docs folder where index.html lives
+    # Points strictly to your folder
     app_location: '/docs'          
-    output_location: '/'  
+    output_location: '/'       
     
-    # Skip Build Frameworks
-    app_build_command: 'echo "Skipping build for plain HTML"'
+    # CRITICAL FIX: Prevents engine from crawling parent directories
+    is_static_export: true
+    
+    app_build_command: 'echo "Skipping framework check"'
